@@ -5,7 +5,7 @@
 
 
 Write a word, and watch it grow from the center of the page into forms.
-This application was inspired by my experience reading [House of Leaves](https://en.wikipedia.org/wiki/House_of_Leaves), and by [ergodic literature](http://en.wikipedia.org/wiki/Ergodic_literature) in general.
+This application was inspired by my experience reading [House of Leaves](https://en.wikipedia.org/wiki/House_of_Leaves), and by [ergodic literature](http://en.wikipedia.org/wiki/Ergodic_literature) in general. Play with it [here](https://edgarhuemac.github.io/forma/).
 
 ## Tuning
 
