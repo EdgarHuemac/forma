@@ -127,7 +127,7 @@
   // in an unscaled coordinate space; draw() fits and centers them after.
 
   function layoutSpiral() {
-    const raw = state.text.replace(/\s+/g, " ").trim();
+    const raw = state.text.replace(/\s+/g, "  ").trim();
     if (!raw) return { glyphs: [], fontSizeBase: state.fontSize };
 
     const lut = getLUT(state.shape);
