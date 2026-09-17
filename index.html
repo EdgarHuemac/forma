@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>forma — letters as shapes</title>
+<meta name="description" content="Turn any word into a circle, square, triangle, or heart made of its own letters. Export your shape as a PDF.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@700&family=Pacifico&family=Bebas+Neue&family=Space+Mono:wght@700&family=Caveat:wght@700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <span class="wordmark">forma</span>
+    <a class="nav-link" href="https://github.com/" target="_blank" rel="noopener">View source</a>
+  </div>
+</header>
+
+<main class="app">
+
+  <section class="controls" aria-label="Controls">
+
+    <div class="field">
+      <label for="textInput">Your text</label>
+      <textarea id="textInput" rows="4" maxlength="400" placeholder="Type something… longer text makes a fuller spiral.">Round and round it goes, spiraling out from a single word into a shape all its own.</textarea>
+    </div>
+
+    <div class="field">
+      <label id="shapeLabel">Shape</label>
+      <div class="shape-picker" role="group" aria-labelledby="shapeLabel">
+        <button type="button" class="shape-btn active" data-shape="circle" aria-pressed="true" aria-label="Circle">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/></svg>
+        </button>
+        <button type="button" class="shape-btn" data-shape="square" aria-pressed="false" aria-label="Square">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3.5" y="3.5" width="17" height="17"/></svg>
+        </button>
+        <button type="button" class="shape-btn" data-shape="triangle" aria-pressed="false" aria-label="Triangle">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3.5 L21 20.5 L3 20.5 Z" stroke-linejoin="round"/></svg>
+        </button>
+        <button type="button" class="shape-btn" data-shape="heart" aria-pressed="false" aria-label="Heart">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 20.2S3 14.5 3 8.6C3 5.5 5.4 3.5 8 3.5c1.8 0 3.3 1 4 2.4.7-1.4 2.2-2.4 4-2.4 2.6 0 5 2 5 5.1 0 5.9-9 11.6-9 11.6Z" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="fontSelect">Typeface</label>
+      <select id="fontSelect">
+        <option value="Inter" selected>Inter — clean</option>
+        <option value="Playfair Display">Playfair Display — elegant</option>
+        <option value="Pacifico">Pacifico — script</option>
+        <option value="Bebas Neue">Bebas Neue — bold</option>
+        <option value="Space Mono">Space Mono — mono</option>
+        <option value="Caveat">Caveat — handwritten</option>
+      </select>
+    </div>
+
+    <div class="field range-field">
+      <label for="ringRange">Spiral spacing <span class="value" id="ringValue">1.5</span>×</label>
+      <input id="ringRange" type="range" min="0.8" max="3" step="0.1" value="1.5">
+    </div>
+
+    <div class="field range-field">
+      <label for="fontSizeRange">Letter size <span class="value" id="fontSizeValue">26</span></label>
+      <input id="fontSizeRange" type="range" min="12" max="64" value="26">
+    </div>
+
+    <details class="advanced">
+      <summary>More controls</summary>
+
+      <div class="field range-field">
+        <label for="spacingRange">Letter spacing <span class="value" id="spacingValue">2</span></label>
+        <input id="spacingRange" type="range" min="-4" max="24" value="2">
+      </div>
+
+      <div class="field range-field">
+        <label for="rotationRange">Rotation <span class="value" id="rotationValue">0</span>°</label>
+        <input id="rotationRange" type="range" min="0" max="360" value="0">
+      </div>
+
+      <div class="field colors-field">
+        <div class="color-group">
+          <label for="textColor">Ink</label>
+          <input id="textColor" type="color" value="#1d1d1f">
+        </div>
+        <div class="color-group">
+          <label for="bgColor">Paper</label>
+          <input id="bgColor" type="color" value="#ffffff">
+        </div>
+      </div>
+
+    </details>
+
+    <button id="exportBtn" class="btn-primary" type="button">Export as PDF</button>
+
+  </section>
+
+  <section class="stage" aria-label="Preview">
+    <canvas id="canvas" width="1000" height="1000"></canvas>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <p>Inspired by the book <a href="https://en.wikipedia.org/wiki/House_of_Leaves">'House of Leaves'</a> & ergodic literature. Free to fork on GitHub.</p>
+  <p>App by <a href="https://github.com/EdgarHuemac">Edgar Huémac</a>.</p>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
